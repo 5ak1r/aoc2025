@@ -1,58 +1,57 @@
+#include <cstdio>
 #include <iostream>
 #include <fstream>
-#include <utility>
 #include <cmath>
 
 #include "readfile.hpp"
 
 std::ifstream file = readFile(1);
 
-int partOne() {
+std::pair<int, int> solution() {
   int start = 50;
-  int zeroes = 0;
+  int zeroes_part1 = 0;
+  int zeroes_part2 = 0;
 
   std::string line;
   while(std::getline(file, line)) {
     char dir = line[0];
     int amount = std::stoi(line.substr(1));
 
-    dir == 'L' ? start -= amount : start += amount;
+    // part2 calculations - before new start position
+    if(dir == 'R') {
+      zeroes_part2 += (start + amount) / 100;
+    } else {
+      zeroes_part2 += amount >= start ? 1 + (amount - start) / 100: 0;
+      if (start == 0) zeroes_part2 -= 1; // counts start == 0 twice for some reason, remove 1 to fix
+    }
 
+    // calculating next start position for both parts
+    dir == 'L' ? start -= amount : start += amount;
     start = ((start % 100) + 100) % 100;
     
-    if(start == 0) zeroes++;
+    // part1 calculation - after new start position
+    if(start == 0) zeroes_part1++;
   }
 
-  return zeroes;
+  return {zeroes_part1, zeroes_part2};
 }
 
-int partTwo() {
-  file.clear();
-  file.seekg(0, std::ios::beg);
+/*
+//alternative method without using arithmetic, much slower due to looping
 
-  int start = 50;
-  int zeroes = 0;
- 
-  std::string line;
-  while(std::getline(file, line)) {
-    char dir = line[0];
-    int amount = std::stoi(line.substr(1));
+for(int i = 0; i < amount; i++) {
+  dir == 'L' ? start -= 1: start += 1;
 
-    for(int i = 0; i < amount; i++) {
-      dir == 'L' ? start -= 1: start += 1;
-
-      if(start == 100 || start == 0) {
-        zeroes++;
-      }
-
-      start = ((start % 100) + 100) % 100;
-    }
+  if(start == 100 || start == 0) {
+    zeroes++;
   }
 
-  return zeroes;
+  start = ((start % 100) + 100) % 100;
 }
+*/
 
 int main() {
-  std::cout << partOne() << std::endl;
-  std::cout << partTwo() << std::endl;
+  std::pair<int, int> parts = solution();
+  std::cout << parts.first << std::endl;
+  std::cout << parts.second << std::endl;
 }
