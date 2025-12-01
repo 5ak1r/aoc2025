@@ -5,7 +5,7 @@
 std::pair<int, int> solution() {
   std::ifstream file;
   if (!readFile(file, 1)) {
-    exit(0);
+    exit(1);
   }
 
   int start = 50;
