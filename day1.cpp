@@ -1,6 +1,3 @@
-#include <cstdio>
-#include <iostream>
-#include <fstream>
 #include <cmath>
 
 #include "readfile.hpp"
