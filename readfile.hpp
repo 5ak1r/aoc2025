@@ -2,16 +2,17 @@
 #include <fstream>
 #include <cstdio>
 
-inline std::ifstream readFile(int day) {
+inline bool readFile(std::ifstream& file, const int& day) {
 
   char filename[20];
   snprintf(filename, sizeof(filename), "./inputs/day%02d.txt", day);
 
-  std::ifstream file(filename);
+  file.open(filename, std::ios::in);
 
   if(!file.is_open()) {
     std::cerr << "error opening file" << std::endl;
+    return false;
   }
 
-  return file;
+  return true;
 }

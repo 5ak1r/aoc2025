@@ -2,9 +2,12 @@
 
 #include "readfile.hpp"
 
-std::ifstream file = readFile(1);
-
 std::pair<int, int> solution() {
+  std::ifstream file;
+  if (!readFile(file, 1)) {
+    exit(0);
+  }
+
   int start = 50;
   int zeroes_part1 = 0;
   int zeroes_part2 = 0;
@@ -30,6 +33,7 @@ std::pair<int, int> solution() {
     if(start == 0) zeroes_part1++;
   }
 
+  file.close();
   return {zeroes_part1, zeroes_part2};
 }
 
