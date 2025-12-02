@@ -1,6 +1,4 @@
-#include <cmath>
-
-#include "readfile.hpp"
+#include "day1.hpp"
 
 std::pair<int, int> solution() {
   std::ifstream file;

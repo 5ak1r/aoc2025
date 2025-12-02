@@ -1,8 +1,6 @@
-#include <iostream>
-#include <fstream>
-#include <cstdio>
+#include "readfile.hpp"
 
-inline bool readFile(std::ifstream& file, const int& day) {
+bool readFile(std::ifstream& file, const int& day) {
 
   char filename[20];
   snprintf(filename, sizeof(filename), "./inputs/day%02d.txt", day);
