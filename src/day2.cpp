@@ -1,5 +1,4 @@
 #include "day2.hpp"
-#include <string>
 
 long part1(const long& i, const std::string& iStr) {
   int iLen = iStr.size();
