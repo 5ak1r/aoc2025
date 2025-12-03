@@ -1,4 +1,4 @@
-#include "day2.hpp"
+#include "day02.hpp"
 
 long part1(const long& i, const std::string& iStr) {
   int iLen = iStr.size();
@@ -17,7 +17,7 @@ long part2(const long& i, const std::string& iStr) {
   return 0;
 }
 
-long solution(int part) {
+long solution(const int& part) {
   std::ifstream file;
   if (!readFile(file, 2)) {
     exit(1);

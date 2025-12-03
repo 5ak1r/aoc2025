@@ -1,10 +1,9 @@
 CXX := g++
 
-SRC := src/day2.cpp \
-  $(wildcard src/*.cpp) \
+SRC := src/day03.cpp \
 	$(wildcard src/helpers/*.cpp)
 
-TARGET := day2.exe
+TARGET := day03.exe
 
 $(TARGET):
 	$(CXX) $(SRC) -o $(TARGET)

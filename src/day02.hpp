@@ -7,4 +7,5 @@
 
 long part1(const long& i, const std::string& iStr);
 long part2(const long& i, const std::string& iStr);
-long solution();
+
+long solution(const int& part);

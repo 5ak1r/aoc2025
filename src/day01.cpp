@@ -1,4 +1,4 @@
-#include "day1.hpp"
+#include "day01.hpp"
 
 std::pair<int, int> solution() {
   std::ifstream file;
