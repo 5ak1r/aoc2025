@@ -1,10 +1,10 @@
 #pragma once
 
 #include <string>
+#include <cmath>
+#include <algorithm>
 
 #include "helpers/readfile.hpp"
 
-int part1(const std::string& line);
-int part2(const std::string& line);
-
+long largestNumber(const std::string& line, const int& digits);
 long solution(const int& part);

@@ -1,32 +1,37 @@
 #include "day03.hpp"
 
-int part1(const std::string& line) {
-  int prev_largest = 0;
-  int largest = 0;
-  int next_largest = 0;
+long largestNumber(const std::string& line, const int& digits) {
+  int lineLen = line.size();
 
-  int pos = 0;
+  int left = 0;
+  int right = lineLen - digits;
 
-  for(int i = 0; i < line.size(); i++) {
-    int battery = line[i] - '0';
+  long result = 0;
 
-    if(battery > largest) {
-      prev_largest = largest;
-      largest = battery;
-      next_largest = 0;
-      pos = i;
-    } else if(battery > next_largest) {
-      next_largest = battery;
+  for(int i = digits; i > 0; i--) {
+    int largest = 0;
+    int count = 0;
+
+    int tempLeft = 0;
+
+    for(char battery : line.substr(left, right - left + 1)) {
+      battery -= '0';
+
+      if(battery > largest) {
+        largest = battery;
+        tempLeft = count;
+      }
+
+      count++;
     }
+
+    left += tempLeft + 1;
+    right = std::min(lineLen - 1, right + 1);
+
+    result += largest * std::pow(10, i - 1);
   }
 
-  return pos == line.size() - 1 ? prev_largest * 10 + largest : largest * 10 + next_largest;
-}
-
-int part2(const std::string& line) {
-  int lineLen = line.size();
-  
-  
+  return result;
 }
 
 long solution(const int& part) {
@@ -38,8 +43,9 @@ long solution(const int& part) {
   long total = 0;
 
   std::string line;
+
   while(std::getline(file, line)) {
-    total += part == 1 ? part1(line) : part2(line);
+    total += part == 1 ? largestNumber(line, 2) : largestNumber(line, 12);
   }
 
   return total;
