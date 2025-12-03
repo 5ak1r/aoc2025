@@ -3,4 +3,6 @@
 #include <cmath>
 #include "helpers/readfile.hpp"
 
-std::pair<int, int> solution();
+namespace day01 {
+  std::pair<int, int> solution();
+}

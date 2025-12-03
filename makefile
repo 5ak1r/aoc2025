@@ -1,12 +1,15 @@
 CXX := g++
 
-SRC := src/day03.cpp \
+SRC := $(wildcard src/*.cpp) \
 	$(wildcard src/helpers/*.cpp)
 
-TARGET := day03.exe
+TARGET := main.out
 
 $(TARGET):
 	$(CXX) $(SRC) -o $(TARGET)
+
+run:
+	make && ./main.out
 
 clean:
 	rm -f $(TARGET)
