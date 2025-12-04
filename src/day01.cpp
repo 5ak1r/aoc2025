@@ -1,7 +1,7 @@
 #include "day01.hpp"
 
 namespace day01 {
-  std::pair<int, int> solution() {
+  int solution(const int& part) {
     std::ifstream file;
     if (!readFile(file, 1)) {
       exit(1);
@@ -17,7 +17,7 @@ namespace day01 {
       int amount = std::stoi(line.substr(1));
 
       // part2 calculations - before new start position
-      if(dir == 'R') {
+      if(dir == 'R' && part == 2) {
         zeroes_part2 += (start + amount) / 100;
       } else {
         zeroes_part2 += amount >= start ? 1 + (amount - start) / 100: 0;
@@ -29,11 +29,11 @@ namespace day01 {
       start = ((start % 100) + 100) % 100;
       
       // part1 calculation - after new start position
-      if(start == 0) zeroes_part1++;
+      if(start == 0 && part == 1) zeroes_part1++;
     }
 
     file.close();
-    return {zeroes_part1, zeroes_part2};
+    return part == 1 ? zeroes_part1: zeroes_part2;
   }
 }
 

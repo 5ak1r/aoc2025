@@ -4,5 +4,5 @@
 #include "helpers/readfile.hpp"
 
 namespace day01 {
-  std::pair<int, int> solution();
+  int solution(const int& part);
 }

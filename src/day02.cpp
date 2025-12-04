@@ -45,6 +45,7 @@ namespace day02 {
       }
     }
 
+    file.close();
     return total;
   }
 }

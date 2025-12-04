@@ -49,6 +49,7 @@ namespace day03 {
       total += part == 1 ? largestNumber(line, 2) : largestNumber(line, 12);
     }
 
+    file.close();
     return total;
   }
 }
