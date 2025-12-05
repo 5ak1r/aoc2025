@@ -2,8 +2,8 @@
 
 #include <string>
 
-#include "helpers/split.hpp"
-#include "helpers/readfile.hpp"
+#include "utils/split.hpp"
+#include "utils/readfile.hpp"
 
 namespace day02 {
   long part1(const long& i, const std::string& iStr);

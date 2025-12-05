@@ -1,8 +1,10 @@
 #pragma once
 
-#include <cmath>
-#include "utils/readfile.hpp"
+#include <vector>
 
-namespace day01 {
+#include "utils/readfile.hpp"
+#include "utils/split.hpp"
+
+namespace day05 {
   int solution(const int& part);
 }

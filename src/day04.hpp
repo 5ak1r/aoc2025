@@ -5,8 +5,8 @@
 #include <vector>
 #include <bits/stdc++.h>
 
-#include "helpers/readfile.hpp"
-#include "helpers/coordinate.hpp"
+#include "utils/readfile.hpp"
+#include "utils/coordinate.hpp"
 
 namespace day04 {
   int solution(const int& day);
