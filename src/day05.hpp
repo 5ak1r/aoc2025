@@ -1,10 +1,11 @@
 #pragma once
 
 #include <vector>
+#include <algorithm>
 
 #include "utils/readfile.hpp"
 #include "utils/split.hpp"
 
 namespace day05 {
-  int solution(const int& part);
+  long solution(const int& part);
 }

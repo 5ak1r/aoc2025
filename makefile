@@ -1,7 +1,7 @@
 CXX := g++
 
 SRC := $(wildcard src/*.cpp) \
-	$(wildcard src/helpers/*.cpp)
+	$(wildcard src/utils/*.cpp)
 
 TARGET := main.out
 
