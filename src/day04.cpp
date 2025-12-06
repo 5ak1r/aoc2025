@@ -52,7 +52,6 @@ namespace day04 {
     } while (erase.size() != 0);
 
     file.close();
-    
     return total;
   }
 }

@@ -53,6 +53,7 @@ namespace day05 {
       }
     }
     
+    file.close();
     return total;
   }
 }
