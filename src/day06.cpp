@@ -38,11 +38,13 @@ namespace day06 {
       lines.push_back(line);
     }
 
-    long total = 0;
+    
     int rows = lines.size();
     int cols = lines[0].size();
-
+    
+    long total = 0;
     long temp = 0;
+    
     for(int i = 0; i < cols; i++) {
       bool add;
       bool change = true;
