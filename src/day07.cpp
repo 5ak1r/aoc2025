@@ -1,7 +1,9 @@
 #include "day07.hpp"
 
 namespace day07 {
-  int solution(const int& part) {
+  // red (https://github.com/NoSpawnn/) gave me the idea to use a hashmap for p2
+
+  size_t solution(const int& part) {
     std::ifstream file;
     if (!readFile(file, 7)) {
       exit(1);
@@ -10,30 +12,37 @@ namespace day07 {
     std::string line;
     std::getline(file, line);
 
-    const int LENGTH = 141;
-    std::bitset<LENGTH> beam;
+    std::unordered_map<int, size_t> beams;
 
-    beam.set(line.find('S'));
+    beams[line.find('S')] = 1;
 
-    int total_part1 = 0;
+    size_t total_part1 = 0;
+    size_t total_part2 = 0;
 
     while(std::getline(file, line)) {
-      std::bitset<LENGTH> newBeams;
+      std::unordered_map<int, size_t> temp;
 
-      for(int i = 0; i < LENGTH; i++) {
-        if(!beam.test(i)) continue;
-
-        if(line[i] == '^') {
+      for(auto beam : beams) {
+        if(line[beam.first] == '^') {
           total_part1++;
-          newBeams.set(i - 1);
-          newBeams.set(i + 1);
-        } else newBeams.set(i);
+          temp[beam.first - 1] += beam.second;
+          temp[beam.first + 1] += beam.second;
+        } else temp[beam.first] += beam.second; //keep going downwards
       }
 
-      beam = newBeams;
+      beams = temp;
     }
 
+    //https://stackoverflow.com/questions/14073879/how-to-sum-all-values-in-the-stdmap
+    total_part2 = std::accumulate(
+      beams.begin(),
+      beams.end(),
+      0UL,
+      [](const size_t previous, const auto& element)
+      { return previous + element.second; }
+    );
+
     file.close();
-    return total_part1;
+    return part == 1 ? total_part1: total_part2;
   }
 }

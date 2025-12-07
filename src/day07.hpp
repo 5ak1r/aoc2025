@@ -1,9 +1,10 @@
 #pragma once
 
-#include <bitset>
+#include <numeric>
+#include <unordered_map>
 
 #include "utils/readfile.hpp"
 
 namespace day07 {
-  int solution(const int& part);
+  size_t solution(const int& part);
 }
