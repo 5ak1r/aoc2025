@@ -6,7 +6,7 @@ SRC := $(wildcard src/*.cpp) \
 TARGET := main.out
 
 $(TARGET):
-	$(CXX) $(SRC) -o $(TARGET)
+	$(CXX) $(SRC) -o $(TARGET) -O3
 
 run:
 	make && ./main.out
