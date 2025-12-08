@@ -31,9 +31,9 @@ struct unionFind {
     if(ir == jr) return;
 
     if(rank[ir] < rank[jr]) {
-      int temp = ir;
-      ir = jr;
-      jr = temp;
+      ir ^= jr;
+      jr ^= ir;
+      ir ^= jr;
     }
 
     parent[jr] = ir;
