@@ -10,19 +10,20 @@
 struct coord {
   int row, column;
 
-  coord(int y, int x) : row(y), column(x) {}
+  coord() : row(0), column(0) {}
+  coord(int x, int y) : row(x), column(y) {}
 };
 
-inline coord operator+(coord a, coord b) {
+inline coord operator+(const coord& a, const coord& b) {
   return {a.row + b.row, a.column + b.column};
 }
 
-inline bool operator==(coord a, coord b) {
+inline bool operator==(const coord& a, const coord& b) {
   return a.row == b.row && a.column == b.column;
 }
 
 struct coordHash {
-  std::size_t operator()(const coord c) const noexcept {
+  std::size_t operator()(const coord& c) const noexcept {
     return (std::uint64_t(c.row) << 32) ^ std::uint64_t(c.column);
   }
 };

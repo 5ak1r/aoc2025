@@ -6,6 +6,7 @@
 #include "day06.hpp"
 #include "day07.hpp"
 #include "day08.hpp"
+#include "day09.hpp"
 
 int main() {
   std::cout << "-----Day 01-----" << "\n";
@@ -32,4 +33,7 @@ int main() {
   std::cout << "-----Day 08-----" << "\n";
   std::cout << "Part One: " << day08::solution(1) << "\n";
   std::cout << "Part Two: " << day08::solution(2) << "\n\n";
+  std::cout << "-----Day 09-----" << "\n";
+  std::cout << "Part One: " << day09::solution(1) << "\n";
+  std::cout << "Part Two: " << day09::solution(2) << "\n\n";
 }

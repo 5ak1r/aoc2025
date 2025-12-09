@@ -17,6 +17,8 @@ namespace day08 {
       jboxes.push_back(coord3(std::stoi(splitLine[0]), std::stoi(splitLine[1]), std::stoi(splitLine[2])));
     }
 
+    file.close();
+    
     int size = jboxes.size();
     std::vector<edge> edges;
 
