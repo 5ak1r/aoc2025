@@ -34,7 +34,7 @@ namespace day10 {
     return res;
   }
 
-  int solution(const int& part) {
+  int part1() {
     std::ifstream file;
     if (!readFile(file, 10)) {
       exit(1);

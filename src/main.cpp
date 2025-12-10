@@ -1,3 +1,5 @@
+#include <cstdlib>
+
 #include "day01.hpp"
 #include "day02.hpp"
 #include "day03.hpp"
@@ -38,6 +40,6 @@ int main() {
   std::cout << "Part One: " << day09::solution(1) << "\n";
   std::cout << "Part Two: " << day09::solution(2) << "\n\n";
   std::cout << "-----Day 10-----" << "\n";
-  std::cout << "Part One: " << day10::solution(1) << "\n";
-  std::cout << "Part Two: " << day10::solution(2) << "\n\n";
+  std::cout << "Part One: " << day10::part1() << "\n";
+  system("python3 src/day10_part2.py");
 }

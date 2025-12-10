@@ -2,3 +2,5 @@ inputs/
 
 *.exe
 *.out
+
+venv/
