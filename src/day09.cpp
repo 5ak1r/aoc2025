@@ -74,7 +74,6 @@ namespace day09 {
         break;
       }
     }
-  
     
     return area;
   }
