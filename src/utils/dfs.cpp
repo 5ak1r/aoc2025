@@ -2,32 +2,17 @@
 
 DFS::DFS(const Graph& graph) : graph(graph) {}
 
-std::vector<Path> DFS::findPaths(const std::string& start, const std::string& stop) {
-  currentPath.clear();
-  allPaths.clear();
-  visited.clear();
+int64_t DFS::dfs(const std::string& start, const std::string& stop) {
+  std::string key = start + "->" + stop;
+  if (memo.count(key)) return memo[key];
 
-  currentPath.push_back(start);
-  dfs(start, stop);
+  if (start == stop) return 1;
 
-  return allPaths;
-}
-
-void DFS::dfs(const std::string& node, const std::string& stop) {
-  if(node == stop) {
-    allPaths.push_back(currentPath);
-    return;
+  int64_t total = 0;
+  for (const std::string& child : graph[start]) {
+      total += dfs(child, stop);
   }
 
-  visited.insert(node);
-
-  for(const auto& next : graph[node]) {
-    if(!visited.count(next)) {
-      currentPath.push_back(next);
-      dfs(next, stop);
-      currentPath.pop_back();
-    }
-  }
-
-  visited.erase(node);
+  memo[key] = total;
+  return total;
 }

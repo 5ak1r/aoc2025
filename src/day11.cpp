@@ -24,18 +24,17 @@ namespace day11 {
 
     DFS dfs(graph);
 
-    if(part == 1) return dfs.findPaths("you", "out").size();
+    if(part == 1) return dfs.dfs("you", "out");
 
 
-    /*auto svrdac = dfs.findPaths("svr", "dac");
-    auto dacfft = dfs.findPaths("dac", "fft");
-    auto fftout = dfs.findPaths("fft", "out");
+    auto svrdac = dfs.dfs("svr", "dac");
+    auto dacfft = dfs.dfs("dac", "fft");
+    auto fftout = dfs.dfs("fft", "out");
 
-    auto svrfft = dfs.findPaths("svr", "fft");
-    auto fftdac = dfs.findPaths("fft", "dac");
-    auto dacout = dfs.findPaths("dac", "out");*/
+    auto svrfft = dfs.dfs("svr", "fft");
+    auto fftdac = dfs.dfs("fft", "dac");
+    auto dacout = dfs.dfs("dac", "out");
 
-    //return svrdac.size() * dacfft.size() * fftout.size() + svrfft.size() * fftdac.size() * dacout.size();
-    return dfs.findPaths("svr", "out").size();
+    return svrdac * dacfft * fftout + svrfft * fftdac * dacout;
   }
 }
